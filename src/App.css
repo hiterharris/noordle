@@ -13,10 +13,54 @@ td {
   text-align: center;
 }
 
-.green {
+.one-green {
   background-color: green;
 }
 
-.red {
+.one-red {
   background-color: red;
 }
+
+.two-green {
+  background-color: green;
+}
+
+.two-red {
+  background-color: red;
+}
+
+.three-green {
+  background-color: green;
+}
+
+.three-red {
+  background-color: red;
+}
+
+.four-green {
+  background-color: green;
+}
+
+.four-red {
+  background-color: red;
+}
+
+.five-green {
+  background-color: green;
+}
+
+.five-red {
+  background-color: red;
+}
+
+/* .one .red {
+  background-color: red;
+}
+
+.two .green {
+  background-color: green;
+}
+
+.two .red {
+  background-color: red;
+} */
