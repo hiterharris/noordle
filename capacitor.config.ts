@@ -4,13 +4,7 @@ const config: CapacitorConfig = {
   appId: 'com.wordle.hiterharris',
   appName: 'wordle',
   webDir: 'build',
-  bundledWebRuntime: false,
-  plugins: {
-    Keyboard: {
-      style: "dark",
-      resizeOnFullScreen: true,
-    },
-  },
+  bundledWebRuntime: false
 };
 
 export default config;

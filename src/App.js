@@ -8,6 +8,8 @@ function App() {
   const [guessOne, setGuessOne] = useState({ word: '', result: null });
   const [guessTwo, setGuessTwo] = useState({ word: '', result: '' });
   const [guessThree, setGuessThree] = useState({ word: '', result: '' });
+  const [guessFour, setGuessFour] = useState({ word: '', result: '' });
+  const [guessFive, setGuessFive] = useState({ word: '', result: '' });
   const [round, setRound] = useState(1);
 
   const handleInput = e => setInput(e.target.value);
@@ -39,6 +41,22 @@ function App() {
       setRound(round + 1);
     } else if (round === 3 && guess !== word) {
       setGuessThree({ word: guess, result: 'red'});
+      setInput('');
+      setRound(round + 1);
+    } else if (round === 4 && guess === word) {
+      setGuessFour({ word: guess, result: 'green'});
+      setInput('');
+      setRound(round + 1);
+    } else if (round === 4 && guess !== word) {
+      setGuessFour({ word: guess, result: 'red'});
+      setInput('');
+      setRound(round + 1);
+    } else if (round === 5 && guess === word) {
+      setGuessFive({ word: guess, result: 'green'});
+      setInput('');
+      setRound(round + 1);
+    } else if (round === 5 && guess !== word) {
+      setGuessFive({ word: guess, result: 'red'});
       setInput('');
       setRound(round + 1);
     } 
@@ -74,19 +92,19 @@ function App() {
             <td className={`three-${guessThree.result}`}>{guessTwo?.word !== '' && guessThree?.word === '' ? input[3]?.toUpperCase() : guessThree?.word[3]}</td>
             <td className={`three-${guessThree.result}`}>{guessTwo?.word !== '' && guessThree?.word === '' ? input[4]?.toUpperCase() : guessThree?.word[4]}</td>
           </tr>
-          <tr className="guess four">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr className={`guess four`}>
+            <td className={`four-${guessFour.result}`}>{guessThree?.word !== '' && guessFour?.word === '' ? input[0]?.toUpperCase() : guessFour?.word[0]}</td>
+            <td className={`four-${guessFour.result}`}>{guessThree?.word !== '' && guessFour?.word === '' ? input[1]?.toUpperCase() : guessFour?.word[1]}</td>
+            <td className={`four-${guessFour.result}`}>{guessThree?.word !== '' && guessFour?.word === '' ? input[2]?.toUpperCase() : guessFour?.word[2]}</td>
+            <td className={`four-${guessFour.result}`}>{guessThree?.word !== '' && guessFour?.word === '' ? input[3]?.toUpperCase() : guessFour?.word[3]}</td>
+            <td className={`four-${guessFour.result}`}>{guessThree?.word !== '' && guessFour?.word === '' ? input[4]?.toUpperCase() : guessFour?.word[4]}</td>
           </tr>
-          <tr className="guess five">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr className={`guess five`}>
+            <td className={`five-${guessFive.result}`}>{guessFour?.word !== '' && guessFive?.word === '' ? input[0]?.toUpperCase() : guessFive?.word[0]}</td>
+            <td className={`five-${guessFive.result}`}>{guessFour?.word !== '' && guessFive?.word === '' ? input[1]?.toUpperCase() : guessFive?.word[1]}</td>
+            <td className={`five-${guessFive.result}`}>{guessFour?.word !== '' && guessFive?.word === '' ? input[2]?.toUpperCase() : guessFive?.word[2]}</td>
+            <td className={`five-${guessFive.result}`}>{guessFour?.word !== '' && guessFive?.word === '' ? input[3]?.toUpperCase() : guessFive?.word[3]}</td>
+            <td className={`five-${guessFive.result}`}>{guessFour?.word !== '' && guessFive?.word === '' ? input[4]?.toUpperCase() : guessFive?.word[4]}</td>
           </tr>
         </tbody>
       </table>
