@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Wordle</h1>
+      <h1>Noordle</h1>
       {/* <p>{word}</p> */}
       <div className="guess-input">
       <input type="text" maxlength="5" value={input.toUpperCase()} onChange={e => handleInput(e)}></input>
