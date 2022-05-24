@@ -13,10 +13,10 @@ td {
   text-align: center;
 }
 
-.correct {
+.green {
   background-color: green;
 }
 
-.incorrect {
+.red {
   background-color: red;
 }

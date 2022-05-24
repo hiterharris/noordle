@@ -5,24 +5,37 @@ function App() {
   const [word, setWord] = useState('NOORI');
   const [input, setInput] = useState('');
   const [guess, setGuess] = useState(input);
-  const [correct, setCorrect] = useState('');
+  const [guessOne, setGuessOne] = useState('');
+  const [guessTwo, setGuessTwo] = useState('');
+  const [guessThree, setGuessThree] = useState('');
+  const [guessFour, setGuessFour] = useState('');
+  const [guessFive, setGuessFive] = useState('');
+  const [guessTest, setGuessTest] = useState({
+    word: '',
+    result: ''
+  });
 
   const handleInput = e => setInput(e.target.value);
 
   useEffect(() => {
     setGuess(input.toUpperCase());
-  }, [input, correct]); 
+  }, [input]);
 
-  const checkWord = () => {
-    setGuess(input);
-    console.log('word: ', word.toUpperCase());
-    console.log('guess: ', guess.toUpperCase());
-    guess == word ? setCorrect('correct') : setCorrect('incorrect');
+  const handleGuess = () => {
+    if (guessOne === '') setGuessOne(guess);
+    if (guessOne !== '' && guessTwo === '') setGuessTwo(guess);
+    if (guessTest.word === '') setGuessTest({word: guess, result: guessTest?.result})
+    setInput('');
   }
 
   useEffect(() => {
-    console.log(correct);
-  }, [correct]);  
+    console.log('word: ', word);
+    guessTest.word === word && setGuessTest({ word: guess, result: 'green' })
+    console.log('guessTest: ', guessTest);  
+  }, [guessTest]);
+
+  useEffect(() => {
+  }, []);
 
   return (
     <div className="App">
@@ -30,23 +43,30 @@ function App() {
       {/* <p>{word}</p> */}
       <div className="guess-input">
       <input type="text" maxlength="5" value={input.toUpperCase()} onChange={e => handleInput(e)}></input>
-      <button type="submit" onClick={() => checkWord()}>Submit</button>
+      <button type="submit" onClick={() => handleGuess()}>Submit</button>
       </div>
        <table>
          <tbody>
-          <tr className={`guess one ${correct}`}>
-            <td>{input[0]?.toUpperCase()}</td>
-            <td>{input[1]?.toUpperCase()}</td>
-            <td>{input[2]?.toUpperCase()}</td>
-            <td>{input[3]?.toUpperCase()}</td>
-            <td>{input[4]?.toUpperCase()}</td>
+           <tr className={`guess test`}>
+            <td>{guessTest.word === '' ? input[0]?.toUpperCase() : guessTest.word[0]}</td>
+            <td>{guessTest.word === '' ? input[1]?.toUpperCase() : guessTest.word[1]}</td>
+            <td>{guessTest.word === '' ? input[2]?.toUpperCase() : guessTest.word[2]}</td>
+            <td>{guessTest.word === '' ? input[3]?.toUpperCase() : guessTest.word[3]}</td>
+            <td>{guessTest.word === '' ? input[4]?.toUpperCase() : guessTest.word[4]}</td>
           </tr>
-          <tr className="guess two">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          {/* <tr className={`guess one`}>
+            <td className={guessTest.result}>{guessOne === '' ? input[0]?.toUpperCase() : guessOne[0]}</td>
+            <td>{guessOne === '' ? input[1]?.toUpperCase() : guessOne[1]}</td>
+            <td>{guessOne === '' ? input[2]?.toUpperCase() : guessOne[2]}</td>
+            <td>{guessOne === '' ? input[3]?.toUpperCase() : guessOne[3]}</td>
+            <td>{guessOne === '' ? input[4]?.toUpperCase() : guessOne[4]}</td>
+          </tr> */}
+          <tr className={`guess two`}>
+            <td>{guessOne !== '' && guessTwo === '' ? input[0]?.toUpperCase() : guessTwo[0]}</td>
+            <td>{guessOne !== '' && guessTwo === '' ? input[1]?.toUpperCase() : guessTwo[1]}</td>
+            <td>{guessOne !== '' && guessTwo === '' ? input[2]?.toUpperCase() : guessTwo[2]}</td>
+            <td>{guessOne !== '' && guessTwo === '' ? input[3]?.toUpperCase() : guessTwo[3]}</td>
+            <td>{guessOne !== '' && guessTwo === '' ? input[4]?.toUpperCase() : guessTwo[4]}</td>
           </tr>
           <tr className="guess three">
             <td></td>
