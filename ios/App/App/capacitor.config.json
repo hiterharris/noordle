@@ -1,0 +1,12 @@
+{
+	"appId": "com.wordle.hiterharris",
+	"appName": "wordle",
+	"webDir": "build",
+	"bundledWebRuntime": false,
+	"plugins": {
+		"Keyboard": {
+			"style": "dark",
+			"resizeOnFullScreen": true
+		}
+	}
+}

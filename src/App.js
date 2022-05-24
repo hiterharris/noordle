@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [word, setWord] = useState('NOORI');
+  const [word] = useState('NOORI');
   const [input, setInput] = useState('');
   const [guess, setGuess] = useState(input);
   const [guessOne, setGuessOne] = useState({ word: '', result: null });
@@ -46,9 +46,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Noordle</h1>
+      <h1>noordle</h1>
       <div className="guess-input">
-      <input type="text" maxlength="5" value={input.toUpperCase()} onChange={e => handleInput(e)}></input>
+      <input type="text" maxLength="5" value={input.toUpperCase()} onChange={e => handleInput(e)}></input>
       <button type="submit" onClick={() => handleGuess()}>Submit</button>
       </div>
        <table>
