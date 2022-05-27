@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.wordle.hiterharris',
-  appName: 'wordle',
+  appId: 'com.noordle.hiterharris',
+  appName: 'noordle',
   webDir: 'build',
   bundledWebRuntime: false
 };

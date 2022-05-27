@@ -5,60 +5,70 @@ function App() {
   const [word] = useState('NOORI');
   const [input, setInput] = useState('');
   const [guess, setGuess] = useState(input);
-  const [guessOne, setGuessOne] = useState({ word: '', result: null });
+  const [guessOne, setGuessOne] = useState({ word: '', result: '' });
   const [guessTwo, setGuessTwo] = useState({ word: '', result: '' });
   const [guessThree, setGuessThree] = useState({ word: '', result: '' });
   const [guessFour, setGuessFour] = useState({ word: '', result: '' });
   const [guessFive, setGuessFive] = useState({ word: '', result: '' });
-  const [round, setRound] = useState(1);
+  const [currentRound, setCurrentRound] = useState(1);
 
   const handleInput = e => setInput(e.target.value);
+
+  const reset = () => {
+    setInput('');
+    setGuessOne({ word: '', result: null});
+    setGuessTwo({ word: '', result: null});
+    setGuessThree({ word: '', result: null});
+    setGuessFour({ word: '', result: null});
+    setGuessFive({ word: '', result: null});
+    setCurrentRound(1);
+  }
 
   useEffect(() => {
     setGuess(input.toUpperCase());
   }, [input]);
 
   const handleGuess = () => {
-    if (round === 1 && guess === word) {
+    if (currentRound === 1 && guess === word) {
       setGuessOne({ word: guess, result: 'green'});
       setInput('');
-      setRound(round + 1);
-    } else if (round === 1 && guess !== word) {
+      setCurrentRound(currentRound + 1);
+    } else if (currentRound === 1 && guess !== word) {
       setGuessOne({ word: guess, result: 'red'});
       setInput('');
-      setRound(round + 1);
-    } else if (round === 2 && guess === word) {
+      setCurrentRound(currentRound + 1);
+    } else if (currentRound === 2 && guess === word) {
       setGuessTwo({ word: guess, result: 'green'});
       setInput('');
-      setRound(round + 1);
-    } else if (round === 2 && guess !== word) {
+      setCurrentRound(currentRound + 1);
+    } else if (currentRound === 2 && guess !== word) {
       setGuessTwo({ word: guess, result: 'red'});
       setInput('');
-      setRound(round + 1);
-    } else if (round === 3 && guess === word) {
+      setCurrentRound(currentRound + 1);
+    } else if (currentRound === 3 && guess === word) {
       setGuessThree({ word: guess, result: 'green'});
       setInput('');
-      setRound(round + 1);
-    } else if (round === 3 && guess !== word) {
+      setCurrentRound(currentRound + 1);
+    } else if (currentRound === 3 && guess !== word) {
       setGuessThree({ word: guess, result: 'red'});
       setInput('');
-      setRound(round + 1);
-    } else if (round === 4 && guess === word) {
+      setCurrentRound(currentRound + 1);
+    } else if (currentRound === 4 && guess === word) {
       setGuessFour({ word: guess, result: 'green'});
       setInput('');
-      setRound(round + 1);
-    } else if (round === 4 && guess !== word) {
+      setCurrentRound(currentRound + 1);
+    } else if (currentRound === 4 && guess !== word) {
       setGuessFour({ word: guess, result: 'red'});
       setInput('');
-      setRound(round + 1);
-    } else if (round === 5 && guess === word) {
+      setCurrentRound(currentRound + 1);
+    } else if (currentRound === 5 && guess === word) {
       setGuessFive({ word: guess, result: 'green'});
       setInput('');
-      setRound(round + 1);
-    } else if (round === 5 && guess !== word) {
+      setCurrentRound(currentRound + 1);
+    } else if (currentRound === 5 && guess !== word) {
       setGuessFive({ word: guess, result: 'red'});
       setInput('');
-      setRound(round + 1);
+      setCurrentRound(currentRound + 1);
     } 
   }
 
@@ -66,8 +76,8 @@ function App() {
     <div className="App">
       <h1>noordle</h1>
       <div className="guess-input">
-      <input type="text" maxLength="5" value={input.toUpperCase()} onChange={e => handleInput(e)}></input>
-      <button type="submit" onClick={() => handleGuess()}>Submit</button>
+        <input type="text" maxLength="5" value={input.toUpperCase()} onChange={e => handleInput(e)}></input>
+        <button type="submit" onClick={() => handleGuess()}>Submit</button>
       </div>
        <table>
          <tbody>
@@ -108,6 +118,7 @@ function App() {
           </tr>
         </tbody>
       </table>
+      <button className="reset-button" onClick={() => reset()}>Reset</button>
     </div>
   );
 }
