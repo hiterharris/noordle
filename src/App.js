@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [word, setWord] = useState('NOORI');
+  const [word] = useState('NOORI');
   const [input, setInput] = useState('');
   const [guess, setGuess] = useState(input);
   const [guessOne, setGuessOne] = useState({ word: '', result: '' });
@@ -13,16 +13,6 @@ function App() {
   const [currentRound, setCurrentRound] = useState(1);
 
   const handleInput = e => setInput(e.target.value);
-
-  // useEffect(() => {
-  //   fetch('https://random-word-api.herokuapp.com/word')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       return setWord(data[0]);
-  //     })
-  //     .catch(error => console.log('error fetching data: ', error))
-  // }, []);
-
 
   const reset = () => {
     setInput('');
@@ -43,24 +33,19 @@ function App() {
       setGuessOne({ word: guess, result: 'green'});
     } else if (currentRound === 1 && guess !== word) {
       setGuessOne({ word: guess, result: 'red'});
-    }
-
-    else if (currentRound === 2 && guess === word) {
+    } else if (currentRound === 2 && guess === word) {
       setGuessTwo({ word: guess, result: 'green'});
     } else if (currentRound === 2 && guess !== word) {
       setGuessTwo({ word: guess, result: 'red'});
-    }
-    else if (currentRound === 3 && guess === word) {
+    } else if (currentRound === 3 && guess === word) {
       setGuessThree({ word: guess, result: 'green'});
     } else if (currentRound === 3 && guess !== word) {
       setGuessThree({ word: guess, result: 'red'});
-    }
-    else if (currentRound === 4 && guess === word) {
+    } else if (currentRound === 4 && guess === word) {
       setGuessFour({ word: guess, result: 'green'});
     } else if (currentRound === 4 && guess !== word) {
       setGuessFour({ word: guess, result: 'red'});
-    }
-    else if (currentRound === 5 && guess === word) {
+    } else if (currentRound === 5 && guess === word) {
       setGuessFive({ word: guess, result: 'green'});
     } else if (currentRound === 5 && guess !== word) {
       setGuessFive({ word: guess, result: 'red'});
@@ -115,7 +100,7 @@ function App() {
           </tr>
         </tbody>
       </table>
-      <button className="reset-button" onClick={() => reset()}>Reset</button>
+      <button className="reset-button" onClick={reset}>Reset</button>
     </div>
   );
 }
