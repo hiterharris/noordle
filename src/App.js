@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import randomWords from 'random-words';
 
 function App() {
-  const [word] = useState('NOORI');
+  const [noori, setNoori] = useState(true);
+  const [word, setWord] = useState('');
   const [input, setInput] = useState('');
   const [guess, setGuess] = useState(input);
   const [guessOne, setGuessOne] = useState({ word: '', result: '', results: [] });
@@ -97,9 +99,19 @@ function App() {
     setCurrentRound(currentRound + 1);
   }
 
+  useEffect(() => {
+    const newWord = randomWords({ exactly: 1, maxLength: 5 });
+    noori ? setWord('NOORI') : setWord(newWord[0]?.toUpperCase());
+  }, [noori]);
+
+  useEffect(() => {
+    if (word.length === 5) randomWords({ exactly: 1, maxLength: 5 });
+  }, [word]);
+
   return (
     <div className="App">
       <h1>noordle</h1>
+      <p>{word}</p>
       <div className="guess-input">
         <input type="text" maxLength="5" value={input.toUpperCase()} onChange={e => handleInput(e)}></input>
         <button type="submit" onClick={() => handleGuess()}>Submit</button>
@@ -141,8 +153,9 @@ function App() {
             <td className={`five-${guessFive?.results[3]}`}>{guessFour?.word !== '' && guessFive?.word === '' ? input[3]?.toUpperCase() : guessFive?.word[3]}</td>
             <td className={`five-${guessFive?.results[4]}`}>{guessFour?.word !== '' && guessFive?.word === '' ? input[4]?.toUpperCase() : guessFive?.word[4]}</td>
           </tr>
-        </tbody>
+        </tbody>  
       </table>
+      <button className="reset-button" onClick={() => setNoori(!noori)}>{noori ? 'Random' : 'Noori'}</button>
       <button className="reset-button" onClick={reset}>Reset</button>
     </div>
   );
