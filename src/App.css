@@ -25,12 +25,20 @@ td {
   background-color: red;
 }
 
+.one-yellow {
+  background-color: yellow;
+}
+
 .two-green {
   background-color: green;
 }
 
 .two-red {
   background-color: red;
+}
+
+.two-yellow {
+  background-color: yellow;
 }
 
 .three-green {
@@ -41,6 +49,10 @@ td {
   background-color: red;
 }
 
+.three-yellow {
+  background-color: yellow;
+}
+
 .four-green {
   background-color: green;
 }
@@ -49,12 +61,20 @@ td {
   background-color: red;
 }
 
+.four-yellow {
+  background-color: yellow;
+}
+
 .five-green {
   background-color: green;
 }
 
 .five-red {
   background-color: red;
+}
+
+.five-yellow {
+  background-color: yellow;
 }
 
 .reset-button {
