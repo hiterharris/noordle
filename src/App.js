@@ -1,6 +1,7 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import randomWords from 'random-words';
+import { wordList } from './assets/wordList';
 
 function App() {
   const [noori, setNoori] = useState(true);
@@ -13,6 +14,7 @@ function App() {
   const [guessFour, setGuessFour] = useState({ word: '', result: '', results: [] });
   const [guessFive, setGuessFive] = useState({ word: '', result: '', results: [] });
   const [currentRound, setCurrentRound] = useState(1);
+  const randomWord = wordList[Math.floor(Math.random()*wordList.length)];
 
   const handleInput = e => setInput(e.target.value);
 
@@ -99,14 +101,14 @@ function App() {
     setCurrentRound(currentRound + 1);
   }
 
-  useEffect(() => {
-    const newWord = randomWords({ exactly: 1, maxLength: 5 });
-    noori ? setWord('NOORI') : setWord(newWord[0]?.toUpperCase());
-  }, [noori]);
+  const handleRandomWord = () => {
+    reset();
+    noori ? setWord('NOORI') : setWord(randomWord?.toUpperCase());
+  }
 
   useEffect(() => {
-    if (word.length === 5) randomWords({ exactly: 1, maxLength: 5 });
-  }, [word]);
+    handleRandomWord();
+  }, [noori]);
 
   return (
     <div className="App">
@@ -155,8 +157,11 @@ function App() {
           </tr>
         </tbody>  
       </table>
-      <button className="reset-button" onClick={() => setNoori(!noori)}>{noori ? 'Random' : 'Noori'}</button>
-      <button className="reset-button" onClick={reset}>Reset</button>
+      <div className="bottom-button-container">
+        {!noori ? <button className="bottom-button new-word-button" onClick={() => handleRandomWord()}>New Word</button> : null}
+        <button className="bottom-button" onClick={reset}>Reset</button>
+      </div>
+      <button className="bottom-button" onClick={() => setNoori(!noori)}>{noori ? 'Random' : 'Noori'}</button>
     </div>
   );
 }

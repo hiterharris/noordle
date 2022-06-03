@@ -77,6 +77,10 @@ td {
   background-color: yellow;
 }
 
-.reset-button {
-  margin: 16px;
+.bottom-button-container {
+  display: flex;
+}
+
+.bottom-button {
+  margin: 8px;
 }
