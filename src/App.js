@@ -14,6 +14,7 @@ function App() {
   const [guessFour, setGuessFour] = useState({ word: '', result: '', results: []});
   const [guessFive, setGuessFive] = useState({ word: '', result: '', results: []});
   const [currentRound, setCurrentRound] = useState(1);
+  const [showAnswer, setShowAnswer] = useState(false);
   const randomWord = wordList[Math.floor(Math.random()*wordList.length)];
 
   const handleInput = e => setInput(e.target.value);
@@ -113,7 +114,7 @@ function App() {
   return (
     <div className="App">
       <h1>noordle</h1>
-      <p>{word}</p>
+      {showAnswer && word}
       <div className="guess-input">
         <input type="text" maxLength="5" value={input.toUpperCase()} onChange={e => handleInput(e)}></input>
         <button type="submit" onClick={() => handleGuess()}>Submit</button>
@@ -159,6 +160,7 @@ function App() {
       </table>
       <div className="bottom-button-container">
         {!noori ? <button className="bottom-button new-word-button" onClick={() => handleRandomWord()}>New Word</button> : null}
+        <button className="bottom-button" onClick={() => setShowAnswer(!showAnswer)}>{!showAnswer ? 'Show Answer' : 'Hide Answer'}</button>
         <button className="bottom-button" onClick={reset}>Reset</button>
       </div>
       <button className="bottom-button" onClick={() => setNoori(!noori)}>{noori ? 'Random' : 'Noori'}</button>
