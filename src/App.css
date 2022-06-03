@@ -17,63 +17,114 @@ td {
   text-align: center;
 }
 
+.text {
+  transition: 0.5s;
+  transform: rotateX(180deg);
+  transform-style: preserve-3d;
+}
+
 .one-green {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: green;
 }
 
 .one-red {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: red;
 }
 
 .one-yellow {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: yellow;
 }
 
 .two-green {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: green;
 }
 
 .two-red {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: red;
 }
 
 .two-yellow {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: yellow;
 }
 
 .three-green {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: green;
 }
 
 .three-red {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: red;
 }
 
 .three-yellow {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: yellow;
 }
 
 .four-green {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: green;
 }
 
 .four-red {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: red;
 }
 
 .four-yellow {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: yellow;
 }
 
 .five-green {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: green;
 }
 
 .five-red {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: red;
 }
 
 .five-yellow {
+  transition: 1s;
+  transform: rotateX(180deg);
+	transform-style: preserve-3d;
   background-color: yellow;
 }
 
