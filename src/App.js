@@ -51,7 +51,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(input)
     setGuess(input.toUpperCase());
   }, [input]);
 
