@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { wordList } from './assets/wordList';
+import Keyboard from './components/Keyboard';
 
 function App() {
   const [noori, setNoori] = useState(true);
@@ -17,7 +18,27 @@ function App() {
   const [showAnswer, setShowAnswer] = useState(false);
   const randomWord = wordList[Math.floor(Math.random()*wordList.length)];
 
-  const handleInput = e => setInput(e.target.value);
+  const handleInput = value => {
+    input.length < 5 && value !=='Back' && setInput(input + value);
+    value == 'Back' && setInput(input.slice(0,-1));
+    value === 'Enter' && handleGuess(); 
+  }
+
+  const handleGuess = () => {
+    if (currentRound === 1) {
+      checkLetter(guessOne);
+    } else if (currentRound === 2) {
+      checkLetter(guessTwo);
+    } else if (currentRound === 3) {
+      checkLetter(guessThree);
+    } else if (currentRound === 4) {
+      checkLetter(guessFour);
+    } else if (currentRound === 5) {
+      checkLetter(guessFive);
+    }
+    setInput('');
+    setCurrentRound(currentRound + 1);
+  }
 
   const reset = () => {
     setInput('');
@@ -30,6 +51,7 @@ function App() {
   }
 
   useEffect(() => {
+    console.log(input)
     setGuess(input.toUpperCase());
   }, [input]);
 
@@ -86,22 +108,6 @@ function App() {
     }
   }
 
-  const handleGuess = () => {
-    if (currentRound === 1) {
-      checkLetter(guessOne);
-    } else if (currentRound === 2) {
-      checkLetter(guessTwo);
-    } else if (currentRound === 3) {
-      checkLetter(guessThree);
-    } else if (currentRound === 4) {
-      checkLetter(guessFour);
-    } else if (currentRound === 5) {
-      checkLetter(guessFive);
-    }
-    setInput('');
-    setCurrentRound(currentRound + 1);
-  }
-
   const handleRandomWord = () => {
     reset();
     noori ? setWord('NOORI') : setWord(randomWord?.toUpperCase());
@@ -114,11 +120,7 @@ function App() {
   return (
     <div className="App">
       <h1>noordle</h1>
-      {showAnswer && word}
-      <div className="guess-input">
-        <input type="text" maxLength="5" value={input.toUpperCase()} onChange={e => handleInput(e)}></input>
-        <button type="submit" onClick={() => handleGuess()}>Submit</button>
-      </div>
+      <div className={showAnswer ? '' : 'hide'}>{word}</div>
        <table>
          <tbody>
            <tr className={`guess one`}>
@@ -159,11 +161,12 @@ function App() {
         </tbody>  
       </table>
       <div className="bottom-button-container">
-        {!noori ? <button className="bottom-button new-word-button" onClick={() => handleRandomWord()}>New Word</button> : null}
         <button className="bottom-button" onClick={() => setShowAnswer(!showAnswer)}>{!showAnswer ? 'Show Answer' : 'Hide Answer'}</button>
         <button className="bottom-button" onClick={reset}>Reset</button>
       </div>
       <button className="bottom-button" onClick={() => setNoori(!noori)}>{noori ? 'Random' : 'Noori'}</button>
+      <button className={noori ? 'bottom-button new-word-button hide' : 'bottom-button new-word-button'} onClick={() => handleRandomWord()}>New Word</button>
+      <Keyboard handleInput={handleInput} />
     </div>
   );
 }

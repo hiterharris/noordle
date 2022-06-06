@@ -1,0 +1,13 @@
+.keyboard {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.row {
+    margin: 32px 0;
+}
+.key {
+    padding: 12px;
+    border: 1px solid white;
+    background-color: lightgrey;
+}

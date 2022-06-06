@@ -135,3 +135,7 @@ td {
 .bottom-button {
   margin: 8px;
 }
+
+.hide {
+  visibility: hidden;
+}
