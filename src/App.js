@@ -1,115 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import { wordList } from './assets/wordList';
 import Keyboard from './components/Keyboard';
+import { useWordCheck } from './hooks';
 
 function App() {
-  const [noori, setNoori] = useState(true);
-  const [word, setWord] = useState('');
-  const [input, setInput] = useState('');
-  const [guess, setGuess] = useState(input);
-  const [guessOne, setGuessOne] = useState({ word: '', result: '', results: []});
-  const [guessTwo, setGuessTwo] = useState({ word: '', result: '', results: []});
-  const [guessThree, setGuessThree] = useState({ word: '', result: '', results: []});
-  const [guessFour, setGuessFour] = useState({ word: '', result: '', results: []});
-  const [guessFive, setGuessFive] = useState({ word: '', result: '', results: []});
-  const [currentRound, setCurrentRound] = useState(1);
-  const [showAnswer, setShowAnswer] = useState(false);
-  const randomWord = wordList[Math.floor(Math.random()*wordList.length)];
-
-  const handleInput = value => {
-    input.length < 5 && value !=='Back' && setInput(input + value);
-    value == 'Back' && setInput(input.slice(0,-1));
-    value === 'Enter' && handleGuess(); 
-  }
-
-  const handleGuess = () => {
-    if (currentRound === 1) {
-      checkLetter(guessOne);
-    } else if (currentRound === 2) {
-      checkLetter(guessTwo);
-    } else if (currentRound === 3) {
-      checkLetter(guessThree);
-    } else if (currentRound === 4) {
-      checkLetter(guessFour);
-    } else if (currentRound === 5) {
-      checkLetter(guessFive);
-    }
-    setInput('');
-    setCurrentRound(currentRound + 1);
-  }
-
-  const reset = () => {
-    setInput('');
-    setGuessOne({ word: '', result: null, results: []});
-    setGuessTwo({ word: '', result: null, results: []});
-    setGuessThree({ word: '', result: null, results: []});
-    setGuessFour({ word: '', result: null, results: []});
-    setGuessFive({ word: '', result: null, results: []});
-    setCurrentRound(1);
-  }
-
-  useEffect(() => {
-    setGuess(input.toUpperCase());
-  }, [input]);
-
-  const checkLetter = (guessRound) => {
-    if (guess[0] === word[0]) {
-      guessRound.results.push('green');
-      guessRound.word = guess;
-    } else if (guess[0] !== word[0] && word.includes(guess[0])) {
-      guessRound.results.push('yellow');
-      guessRound.word = guess;
-    } else if (guess[0] !== word[0] && !word.includes(guess[0])) {
-      guessRound.results.push('red');
-      guessRound.word = guess;
-    }
-    if (guess[1] === word[1]) {
-      guessRound.results.push('green');
-      guessRound.word = guess;
-    } else if (guess[1] !== word[1] && word.includes(guess[1])) {
-      guessRound.results.push('yellow');
-      guessRound.word = guess;
-    } else if (guess[1] !== word[1] && !word.includes(guess[1])) {
-      guessRound.results.push('red');
-      guessRound.word = guess;
-    }
-    if (guess[2] === word[2]) {
-      guessRound.results.push('green');
-      guessRound.word = guess;
-    } else if (guess[2] !== word[2] && word.includes(guess[2])) {
-      guessRound.results.push('yellow');
-      guessRound.word = guess;
-    } else if (guess[2] !== word[2] && !word.includes(guess[2])) {
-      guessRound.results.push('red');
-      guessRound.word = guess;
-    }
-    if (guess[3] === word[3]) {
-      guessRound.results.push('green');
-      guessRound.word = guess;
-    } else if (guess[3] !== word[3] && word.includes(guess[3])) {
-      guessRound.results.push('yellow');
-      guessRound.word = guess;
-    } else if (guess[3] !== word[3] && !word.includes(guess[3])) {
-      guessRound.results.push('red');
-      guessRound.word = guess;
-    }
-    if (guess[4] === word[4]) {
-      guessRound.results.push('green');
-      guessRound.word = guess;
-    } else if (guess[4] !== word[4] && word.includes(guess[4])) {
-      guessRound.results.push('yellow');
-      guessRound.word = guess;
-    } else if (guess[4] !== word[4] && !word.includes(guess[4])) {
-      guessRound.results.push('red');
-      guessRound.word = guess;
-    }
-  }
-
-  const handleRandomWord = () => {
-    reset();
-    noori ? setWord('NOORI') : setWord(randomWord?.toUpperCase());
-  }
+  const { noori,
+    showAnswer,
+    word,
+    guessOne,
+    guessTwo,
+    guessThree,
+    guessFour,
+    guessFive,
+    currentRound,
+    input,
+    setShowAnswer,
+    setNoori,
+    handleInput,
+    reset,
+    handleRandomWord
+  } = useWordCheck();
 
   useEffect(() => {
     handleRandomWord();
