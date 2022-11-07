@@ -1,7 +1,7 @@
 import React from 'react';
 import './Keyboard.css';
-import keys from '../assets/keys';
-import { getKeyClassNames } from '../helpers';
+import keys from '../../assets/keys';
+import { getKeyClassNames } from '../../helpers';
 
 const Keyboard = props => {
     const { handleInput } = props;
