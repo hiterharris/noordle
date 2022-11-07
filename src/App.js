@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { wordList } from './assets/wordList';
@@ -118,8 +117,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>noordle</h1>
-      <div className={showAnswer ? '' : 'hide'}>{word}</div>
+      <h1 className='title'>noordle</h1>
+      <div className={showAnswer ? 'answer' : 'hide'}>{word}</div>
        <table>
          <tbody>
            <tr className={`guess one`}>
@@ -163,7 +162,7 @@ function App() {
         <button className="bottom-button" onClick={() => setShowAnswer(!showAnswer)}>{!showAnswer ? 'Show Answer' : 'Hide Answer'}</button>
         <button className="bottom-button" onClick={reset}>Reset</button>
       </div>
-      <button className="bottom-button" onClick={() => setNoori(!noori)}>{noori ? 'Random' : 'Noori'}</button>
+      <button className="bottom-button" onClick={() => setNoori(!noori)}>{noori ? 'Random' : 'Noordle'}</button>
       <button className={noori ? 'bottom-button new-word-button hide' : 'bottom-button new-word-button'} onClick={() => handleRandomWord()}>New Word</button>
       <Keyboard handleInput={handleInput} />
     </div>

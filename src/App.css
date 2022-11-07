@@ -3,6 +3,11 @@
   flex-direction: column;
   align-items: center;
   margin-top: 32px;
+  color: white;
+}
+
+.title {
+  color: white;
 }
 
 .guess-input {
@@ -10,11 +15,14 @@
 }
 
 td {
-  height: 25px;
+  height: 20px;
   width: 25px;
   padding: 20px;
-  border: 1px solid black;
+  border: 2px solid #3a3a3c;
   text-align: center;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
 }
 
 .text {
@@ -27,105 +35,105 @@ td {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: green;
+  background-color: #6aaa64;
 }
 
 .one-red {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: red;
+  background-color: #363636;
 }
 
 .one-yellow {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: yellow;
+  background-color: #b59f3b;
 }
 
 .two-green {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: green;
+  background-color: #6aaa64;
 }
 
 .two-red {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: red;
+  background-color: #363636;
 }
 
 .two-yellow {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: yellow;
+  background-color: #b59f3b;
 }
 
 .three-green {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: green;
+  background-color: #6aaa64;
 }
 
 .three-red {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: red;
+  background-color: #363636;
 }
 
 .three-yellow {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: yellow;
+  background-color: #b59f3b;
 }
 
 .four-green {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: green;
+  background-color: #6aaa64;
 }
 
 .four-red {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: red;
+  background-color: #363636;
 }
 
 .four-yellow {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: yellow;
+  background-color: #b59f3b;
 }
 
 .five-green {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: green;
+  background-color: #6aaa64;
 }
 
 .five-red {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: red;
+  background-color: #363636;
 }
 
 .five-yellow {
   transition: 1s;
   transform: rotateX(180deg);
 	transform-style: preserve-3d;
-  background-color: yellow;
+  background-color: #b59f3b;
 }
 
 .bottom-button-container {
