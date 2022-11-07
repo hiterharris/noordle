@@ -52,7 +52,6 @@ function useWordCheck() {
     setGuess(input.toUpperCase());
   }, [input]);
 
-
   const handleRandomWord = () => {
     reset();
     noori ? setWord('NOORI') : setWord(randomWord?.toUpperCase());
@@ -61,9 +60,24 @@ function useWordCheck() {
   useEffect(() => {
     handleRandomWord();
   }, [noori]);
-
   
-  return { noori, showAnswer, word, guessOne, guessTwo, guessThree, guessFour, guessFive, currentRound, input, setShowAnswer, setNoori, handleInput, reset, handleRandomWord }
+  return {
+    noori,
+    showAnswer,
+    word,
+    guessOne,
+    guessTwo,
+    guessThree,
+    guessFour,
+    guessFive,
+    currentRound,
+    input,
+    setShowAnswer,
+    setNoori,
+    handleInput,
+    reset,
+    handleRandomWord
+  }
 }
 
 export default useWordCheck;
